@@ -20,6 +20,7 @@ package at.technikum.mti.fancycoverflow;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout.LayoutParams;
 
 
 public abstract class FancyCoverFlowAdapter extends BaseAdapter {
@@ -59,7 +60,8 @@ public abstract class FancyCoverFlowAdapter extends BaseAdapter {
 
 
         coverFlowItem.addView(wrappedView);
-        coverFlowItem.setLayoutParams(wrappedView.getLayoutParams());
+		//we will fix the layoutParam incompatibility here
+        coverFlowItem.setLayoutParams(new FancyCoverFlow.LayoutParams(wrappedView.getLayoutParams()));
 
         return coverFlowItem;
     }
